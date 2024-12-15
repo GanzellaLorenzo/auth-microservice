@@ -7,6 +7,8 @@ Microserviço de autenticação com Node.js.
 - Autenticação JWT
 - Hash de senhas com bcrypt
 - MongoDB para armazenamento
+- Validação de dados
+- Testes automatizados
 - API REST
 
 ## Instalação
@@ -92,4 +94,6 @@ JWT_SECRET=seu-jwt-secret-aqui
 ```bash
 npm start          # Iniciar em produção
 npm run dev        # Iniciar em desenvolvimento
+npm test           # Executar testes
+npm run test:watch # Executar testes em modo watch
 ```
