@@ -13,12 +13,6 @@ const register = async (req, res) => {
       });
     }
 
-    if (!name || !email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: 'Todos os campos são obrigatórios'
-      });
-    }
 
     const user = new User({ name, email, password });
     await user.save();
@@ -53,12 +47,6 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: 'Email e senha são obrigatórios'
-      });
-    }
 
     const user = await User.findOne({ email });
     if (!user) {
