@@ -13,7 +13,6 @@ const register = async (req, res) => {
       });
     }
 
-
     const user = new User({ name, email, password });
     await user.save();
 
@@ -36,6 +35,7 @@ const register = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('Erro no registro:', error);
     res.status(500).json({
       success: false,
       message: 'Erro interno do servidor'
@@ -46,7 +46,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
 
     const user = await User.findOne({ email });
     if (!user) {
@@ -83,6 +82,7 @@ const login = async (req, res) => {
       }
     });
   } catch (error) {
+    console.error('Erro no login:', error);
     res.status(500).json({
       success: false,
       message: 'Erro interno do servidor'
